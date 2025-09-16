@@ -3,7 +3,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const totalLecturesSpan = document.getElementById('total-lectures');
     const dayGroups = document.querySelectorAll('.checkbox-group');
     const checkboxesPerDay = 10;
-
+    const allCheckboxes = document.querySelectorAll('.checkbox-group input[type="checkbox"]');
+    
     // 페이지 로드 시 로컬 스토리지에서 저장된 체크박스 상태를 불러와 적용
     const savedDailyChecks = JSON.parse(localStorage.getItem('dailyChecks')) || {};
 
@@ -26,8 +27,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    const allCheckboxes = document.querySelectorAll('.checkbox-group input[type="checkbox"]');
-    
     // 체크박스 상태 변경 감지
     allCheckboxes.forEach(checkbox => {
         checkbox.addEventListener('change', () => {
@@ -48,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 초기 총 강의 수 업데이트
     const initialCheckedCount = document.querySelectorAll('.checkbox-group input[type="checkbox"]:checked').length;
     totalLecturesSpan.textContent = initialCheckedCount;
-
+    
     // 2. 진도율 계산기 기능
     const courseNameInput = document.getElementById('course-name');
     const totalLecturesInput = document.getElementById('total-lectures-count');
@@ -134,4 +133,14 @@ document.addEventListener('DOMContentLoaded', () => {
         remainingSpan.textContent = initialRemaining;
         percentageSpan.textContent = `${initialPercentage}%`;
     }
+
+    // 리셋 버튼 기능
+    const resetAllBtn = document.getElementById('reset-all-btn');
+
+    resetAllBtn.addEventListener('click', () => {
+        if (confirm("모든 기록을 정말로 초기화하시겠습니까? 이 작업은 되돌릴 수 없습니다.")) {
+            localStorage.clear(); // 로컬 스토리지 데이터 모두 삭제
+            location.reload(); // 페이지 새로고침
+        }
+    });
 });

@@ -3,7 +3,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const totalLecturesSpan = document.getElementById('total-lectures');
     const dayGroups = document.querySelectorAll('.checkbox-group');
     const checkboxesPerDay = 10;
-    const allCheckboxes = document.querySelectorAll('.checkbox-group input[type="checkbox"]');
     
     // 페이지 로드 시 로컬 스토리지에서 저장된 체크박스 상태를 불러와 적용
     const savedDailyChecks = JSON.parse(localStorage.getItem('dailyChecks')) || {};
@@ -27,6 +26,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    const allCheckboxes = document.querySelectorAll('.checkbox-group input[type="checkbox"]');
+    
     // 체크박스 상태 변경 감지
     allCheckboxes.forEach(checkbox => {
         checkbox.addEventListener('change', () => {

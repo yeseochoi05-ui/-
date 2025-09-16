@@ -130,6 +130,22 @@ hr {
     background-color: #357bd8;
 }
 
+#reset-all-btn {
+    background-color: #4a90e2; /* 파란색으로 변경 */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+#reset-all-btn:hover {
+    background-color: #357bd8; /* 진한 파란색 */
+}
+
 #course-list {
     display: flex;
     flex-direction: column;
@@ -174,20 +190,4 @@ hr {
 .progress-percentage {
     font-weight: bold;
     color: #28a745;
-}
-
-#reset-all-btn {
-    background-color: #e74c3c; /* 빨간색 계열 */
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
-    margin-top: 20px;
-    transition: background-color 0.3s;
-}
-
-#reset-all-btn:hover {
-    background-color: #c0392b; /* 진한 빨간색 */
 }
